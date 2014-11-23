@@ -25,9 +25,18 @@ class UsersController < ApplicationController
   end
 
   def update
+    if @user.update_attributes(user_params)
+      flash[:success] = "Profile updated."
+      redirect_to @user 
+    else 
+      render 'edit'
+    end
   end
 
   def destroy
+    @user.destroy
+    flash[:success] = "User was deleted."
+    redirect_to root_path
   end
 
   private
