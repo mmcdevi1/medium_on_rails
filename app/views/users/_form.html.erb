@@ -1,0 +1,24 @@
+<%= form_for(@user) do |f| %>
+  <div class="form-group">
+    <%= f.label :first_name, "First Name" %> <span>Your first name</span>
+    <%= f.text_field :first_name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :last_name, "Last Name" %> <span>Your last name</span>
+    <%= f.text_field :last_name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :email %> <span>We'll send your login details to this address</span>
+    <%= f.text_field :email, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :password %> <span>Minimum of 6 characters. Letters, numbers and special characters allowed.</span>
+    <%= f.password_field :password, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :password_confirmation %> <span>Must match password</span>
+    <%= f.password_field :password_confirmation, class: "form-control" %>
+  </div>
+  <p>Already have an account? <%= link_to "Log in", "signin_path" %></p>
+  <%= f.submit "Register", class: "btn btn-success btn-lg btn-block" %>
+<% end %>
