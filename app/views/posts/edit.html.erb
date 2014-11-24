@@ -1,4 +1,4 @@
-<h2>New post</h2>
+<h2>Edit <%= @post.title %></h2>
 <%= form_for(@post) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
@@ -19,5 +19,5 @@
     <%= f.label :content %>
     <%= f.text_area :content, class: "form-control" %>
   </div>
-  <%= f.submit "Submit Story", class: "btn btn-success" %>
+  <%= f.submit "Update Story", class: "btn btn-success" %>
 <% end %>

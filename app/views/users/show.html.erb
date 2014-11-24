@@ -1,6 +1,9 @@
 <h3><%= @user.first_name %> <%= @user.last_name %></h3>
-<% @posts.each do |p| %>
-  <div>
-    <%= p.title %>
+<% @posts.each do |post| %>
+  <div id="<%= dom_id(post) %>">
+    <%= post.title %> 
+    <% if current_user == post.user %>
+      <%= link_to "Delete", post, method: :delete, data: { confirm: "Are you sure?" } %>
+    <% end %>
   </div>
 <% end %>
