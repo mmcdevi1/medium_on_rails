@@ -1,0 +1,11 @@
+<div class="text-center">
+  <h1 class="hero-title">Medium</h1>
+  <p style="font-size:22px;">Everyone's stories and ideas</p>
+  <%= link_to "Learn more", "#", class: "btn btn-default" %>
+</div>
+<% @posts.each do |post| %>
+  <div>
+    <%= post.title %><br>
+    Submitted by <%= post.user.first_name %>
+  </div>
+<% end %>

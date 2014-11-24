@@ -7,17 +7,20 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to "Medium", root_path, class: "navbar-brand" %>
+      <%= link_to "Medium on Rails", root_path, class: "navbar-brand" %>
     </div>
     <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
         
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <% if signed_in? %>
+        <li>
+          <%= link_to "Write a new story", new_post_path, class: "btn btn-default navbar-btn" %>
+        </li>
         <li id="fat-menu" class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            Michael McDevitt <b class="caret"></b>
+            <%= current_user.first_name %> <%= current_user.last_name %><b class="caret"></b>
           </a>
           <ul class="dropdown-menu">
             <li>
@@ -28,17 +31,18 @@
             </li>
             <li class="divider"></li>
             <li>
-              <%= link_to "Sign out", register_path, method: "delete" %>
+              <%= link_to "Sign out", logout_path, method: "delete" %>
             </li>
           </ul>
         </li>
+        <% else %>
         <li>
-          <%= link_to "Log In", "signin_path" %>
+          <%= link_to "Log In", login_path %>
         </li>
         <li>
           <%= link_to "Register", register_path, class: "btn btn-default navbar-btn" %>
         </li>
-        
+        <% end %>
         
         
         

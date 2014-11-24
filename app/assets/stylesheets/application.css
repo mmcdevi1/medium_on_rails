@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
-@import url(http://fonts.googleapis.com/css?family=Josefin+Sans);
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:400,700);
 body {
   font-family: 'Josefin Sans';
 }
@@ -73,3 +73,44 @@ header {
 .field_with_errors:first-child {
   display: inline-block;
 }
+.hero-title {
+  font-size: 50px;
+  font-weight: 700;
+}
+.navbar-brand {
+  color: #333;
+  font-weight: 700;
+}
+.navbar-brand:hover {
+  color: #000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

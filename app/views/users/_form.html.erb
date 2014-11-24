@@ -19,6 +19,6 @@
     <%= f.label :password_confirmation %> <span>Must match password</span>
     <%= f.password_field :password_confirmation, class: "form-control" %>
   </div>
-  <p>Already have an account? <%= link_to "Log in", "signin_path" %></p>
+  <p>Already have an account? <%= link_to "Log in", login_path %></p>
   <%= f.submit "Register", class: "btn btn-success btn-lg btn-block" %>
 <% end %>

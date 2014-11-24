@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @posts = @user.posts.all
   end
 
   def new
