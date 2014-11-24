@@ -2,7 +2,8 @@ class PostsController < ApplicationController
   before_action :set_posts, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, except: [:index, :show]
   before_action :correct_user, only: [:edit, :update, :destroy]
-
+  layout :post_layout
+  
   def index
     @posts = Post.all.order("created_at DESC")
   end
@@ -56,6 +57,12 @@ class PostsController < ApplicationController
     unless current_user == @post.user
       redirect_to root_path
       flash[:danger] = "You can't do that."
+    end
+  end
+
+  def post_layout
+    if params[:action] == 'new' || params[:action] == 'edit'
+      'posts_form'
     end
   end
 
