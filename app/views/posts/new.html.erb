@@ -1,5 +1,5 @@
 <h2>New post</h2>
-<%= form_for(@post) do |f| %>
+<%= form_for(@post, html: { multipart: true }) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -19,5 +19,6 @@
     <%= f.label :content %>
     <%= f.text_area :content, class: "form-control" %>
   </div>
+  <%= f.file_field :attachment, as: :file %>
   <%= f.submit "Submit Story", class: "btn btn-success", id: "submit-btn", style: "display:none" %>
 <% end %>

@@ -1,0 +1,14 @@
+<h1 class="hero-title">Your stories</h1>
+<%= render 'links' %>
+<% @posts.each do |post| %>
+  <div class="row post-block">
+    <div class="col-sm-1">
+
+    </div>
+    <div class="col-sm-11">
+      <h3><%= link_to post.title, post %></h3>
+      <p class="subtitle"><%= link_to "This is the subtitle placeholder", post %></p>
+      <p class="text-muted">Published <%= time_ago_in_words(post.created_at) %> ago</p>
+    </div>
+  </div>
+<% end %>

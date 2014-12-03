@@ -12,6 +12,7 @@ gem "twitter-bootstrap-rails"
 gem 'bcrypt-ruby'
 gem 'faker'
 gem 'bootstrap-will_paginate'
+gem 'paperclip'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'

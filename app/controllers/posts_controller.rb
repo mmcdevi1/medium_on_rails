@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   layout :post_layout
   
   def index
-    @posts = Post.all.order("created_at DESC")
+    @posts = Post.where(draft: false).order("created_at DESC")
   end
 
   def show
@@ -21,7 +21,7 @@ class PostsController < ApplicationController
       flash[:success] = "Post created."
       redirect_to @post
     else
-      render 'new'
+      render 'edit'
     end
   end
 
@@ -49,7 +49,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :content, :attachment)
   end
 
   def correct_user
@@ -63,6 +63,8 @@ class PostsController < ApplicationController
   def post_layout
     if params[:action] == 'new' || params[:action] == 'edit'
       'posts_form'
+    elsif params[:action] == 'show' 
+      'post_show'
     end
   end
 

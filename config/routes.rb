@@ -8,5 +8,8 @@ Rails.application.routes.draw do
   get '/login',    to: 'sessions#new'
   match '/logout',   to: 'sessions#destroy', via: :delete
 
+  get '/me/stories/drafts', to: 'stories#index', as: :stories_draft
+  get '/me/stories/public', to: 'stories#public', as: :stories_public
+
   root 'posts#index'
 end

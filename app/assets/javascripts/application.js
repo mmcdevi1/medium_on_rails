@@ -15,7 +15,7 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
-$(document).ready(function () {
+var a = function() {
   // Fade out alerts
   setTimeout(function () {
     $('.alert').fadeOut('slow');
@@ -24,4 +24,6 @@ $(document).ready(function () {
   $("#publish-btn").click(function() {
     $("form").submit();
   });
-});
+}
+$(document).ready(a);
+$(document).on('page:load', a);

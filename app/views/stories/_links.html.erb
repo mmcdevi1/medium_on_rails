@@ -1,0 +1,12 @@
+<ul class="story-links">
+  <li>
+    <%= link_to stories_draft_path, class: active_class_wo_class(stories_draft_path).to_s do %>
+    Drafts (<%= current_user.posts.where(draft: true).count %>)
+    <% end %>
+  </li>
+  <li>
+    <%= link_to stories_public_path, class: active_class_wo_class(stories_public_path).to_s do %>
+    Public (<%= current_user.posts.where(draft: false).count %>)
+    <% end %>
+  </li>
+</ul>

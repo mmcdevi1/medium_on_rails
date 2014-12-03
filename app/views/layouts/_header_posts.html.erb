@@ -24,6 +24,9 @@
               <%= link_to "Profile", user_path(current_user) %>
             </li>
             <li>
+              <%= link_to "Your drafts and stories", stories_draft_path %>
+            </li>
+            <li>
               <%= link_to "Settings", "#" %>
             </li>
             <li class="divider"></li>
@@ -32,9 +35,11 @@
             </li>
           </ul>
         </li>
+        <% if params[:action] == 'new' || params[:action] == 'edit' %>
         <li>          
           <%= link_to "Publish", "#", class: "btn btn-green-outline navbar-btn", id: "publish-btn" %>
-        </li>        
+        </li>  
+        <% end %>      
         <% else %>
         <li>
           <%= link_to "Log In", login_path %>
