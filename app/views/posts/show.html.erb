@@ -1,4 +1,4 @@
-<div id="wrapper" class="post" style="background: url('<%= @post.attachment %>');
+<div id="<%= "wrapper" if @post.attachment.exists? %>" class="post" style="background: url('<%= @post.attachment %>');
         -webkit-background-size: cover; -moz-background-size: cover; 
         -o-background-size: cover; background-size: cover;">
   <%= render 'layouts/header_posts' %>
@@ -14,8 +14,9 @@
     <% end %> 
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2">
-        <h1><%= @post.title %></h1>
-        <p>by <%= @post.user.first_name %> <%= @post.user.last_name %></p>
+        <h1 <%= 'style=color:#333' unless @post.attachment.exists? %>><%= @post.title %></h1>
+        <h3 <%= 'style=color:#333' unless @post.attachment.exists? %>><%= @post.subtitle %></h3>
+        <p <%= 'style=color:#333' unless @post.attachment.exists? %>>  by <%= @post.user.first_name %> <%= @post.user.last_name %></p>        
       </div>
     </div>
   </div>
@@ -23,8 +24,20 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
-      <div class="content">
-        <%= @post.content %>
+      <div class="main-content">
+        <div class="content">
+          <%= @post.content %>
+        </div>
+        <div class="recommend">
+          <%= pluralize(@post.recommends.count, "Recommend") %>
+          <% if signed_in? %>
+            <% if Recommend.where(user_id: current_user.id, post_id: @post.id).any? %>
+              <%= link_to "Recommended", downvote_post_path(@post), method: :delete %>
+            <% else %>
+              <%= link_to "Recommend", upvote_post_path(@post), method: :post %>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

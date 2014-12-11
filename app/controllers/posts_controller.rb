@@ -43,13 +43,34 @@ class PostsController < ApplicationController
     redirect_to :back
   end
 
+  def upvote 
+    @post = Post.find(params[:id])
+    @recommend = @post.recommends.new
+    @recommend.user = current_user
+    if Recommend.where(user_id: current_user.id, post_id: @post.id).any?
+      redirect_to :back
+      flash[:danger] = "You can only recommend once."
+    else
+      @recommend.save
+      redirect_to :back
+      flash[:success] = "You have recommended this article."
+    end
+  end
+
+  def downvote
+    @post = Post.find(params[:id])
+    @recommend = Recommend.where(user_id: current_user.id, post_id: @post.id).first
+    @recommend.destroy
+    redirect_to :back
+  end
+
   private
   def set_posts
     @post = Post.find(params[:id])
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, :attachment)
+    params.require(:post).permit(:title, :content, :attachment, :draft, :subtitle)
   end
 
   def correct_user

@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_secure_password
   
   has_many :posts
+  has_many :recommends
 
   before_create { |user| user.email = user.email.downcase }                  
   before_create :create_remember_token

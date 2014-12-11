@@ -22,6 +22,14 @@ body,
 #wrapper {
   height: 100%
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
 .modal-content {
   box-shadow: none;
   border-radius: 2px;
@@ -155,9 +163,12 @@ ul {
   color: #fff;
 }
 .content {
-  padding: 90px 0;
+  padding-bottom: 50px;
   font-size:22px;
   font-family: Garamond
+}
+.main-content {
+  padding: 90px 0;
 }
 
 

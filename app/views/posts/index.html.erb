@@ -5,12 +5,16 @@
 </div>
 <% @posts.each do |post| %>
   <div class="row post-block">
-    <div class="col-sm-1">
-
+    <% if post.attachment.exists? %>
+    <div class="col-sm-2">
+      <%= image_tag(post.attachment.url(:thumb)) %>
     </div>
-    <div class="col-sm-11">
+    <% end %>
+    <div class="col-sm-10">
       <h3><%= link_to post.title, post %></h3>
-      <p class="subtitle"><%= link_to "This is the subtitle placeholder", post %></p>
+      <% if post.subtitle %>
+        <p class="subtitle"><%= link_to post.subtitle, post %></p>
+      <% end %>
       <%= link_to post.user.first_name + " " + post.user.last_name, post.user %>
     </div>
   </div>

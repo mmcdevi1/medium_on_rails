@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
 
   resources :users
-  resources :posts
+
+  resources :posts do 
+    resources :recommends
+    member do 
+      post 'upvote'
+      match '/downvote', to: 'posts#downvote', via: :delete
+    end
+  end
+
   resources :sessions, only: [:new, :create, :destroy]
 
   get '/register', to: 'users#new'

@@ -16,9 +16,15 @@
     <%= f.text_field :title, class: "form-control" %>
   </div>
   <div class="form-group">
+    <%= f.label :subtitle %>
+    <%= f.text_field :subtitle, class: "form-control" %>
+  </div>
+  <div class="form-group">
     <%= f.label :content %>
     <%= f.text_area :content, class: "form-control" %>
   </div>
   <%= f.file_field :attachment, as: :file %>
+  Draft? Yes <%= f.radio_button(:draft, "true") %>
+  No <%= f.radio_button(:draft, "false") %>
   <%= f.submit "Submit Story", class: "btn btn-success", id: "submit-btn", style: "display:none" %>
 <% end %>

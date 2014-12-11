@@ -9,6 +9,7 @@ class Post < ActiveRecord::Base
   validates_attachment_content_type :attachment, :content_type => /\Aimage/
 
   belongs_to :user
+  has_many :recommends
 
   validates :title, presence: true, length: { minimum: 3, maximum: 140 }
   validates :content, presence: true, length: { minimum: 5 }
