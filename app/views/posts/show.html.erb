@@ -29,7 +29,6 @@
           <%= @post.content %>
         </div>
         <div class="recommend">
-          <%= pluralize(@post.recommends.count, "Recommend") %>
           <% if signed_in? %>
             <% if Recommend.where(user_id: current_user.id, post_id: @post.id).any? %>
               <%= link_to "Recommended", downvote_post_path(@post), method: :delete %>

@@ -8,3 +8,12 @@
     <% end %>
   </div>
 <% end %>
+<div class="recommendations">
+  <h3>Recommended by <%= @user.first_name %> <%= @user.last_name %></h3>
+  <% @recommendations.each do |recommendation| %>
+    <div>
+      <%= link_to recommendation.post.title, recommendation.post %><br>
+      <%= recommendation.post.user.first_name %> <%= recommendation.post.user.last_name %>
+    </div>
+  <% end %>
+</div>

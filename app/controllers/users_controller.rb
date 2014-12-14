@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def show
     @posts = @user.posts.all
+    @recommendations = @user.recommends.all
   end
 
   def new

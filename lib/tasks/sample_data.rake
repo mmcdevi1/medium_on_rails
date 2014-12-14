@@ -16,10 +16,18 @@ namespace :db do
     end
 
     users = User.all.limit(6)
-    50.times do 
+    10.times do 
       title = Faker::Lorem.sentence(5)
+      subtitle = Faker::Lorem.sentence(5)
       content = Faker::Lorem.sentence(5)
-      users.each { |user| user.posts.create!(title: title, content: content) }
+      users.each { |user| user.posts.create!(title: title, subtitle: subtitle, content: content) }
+    end
+    10.times do 
+      title = Faker::Lorem.sentence(5)
+      subtitle = Faker::Lorem.sentence(5)
+      content = Faker::Lorem.sentence(5)
+      draft = false
+      users.each { |user| user.posts.create!(title: title, subtitle: subtitle, content: content, draft: draft) }
     end
   end
 end
