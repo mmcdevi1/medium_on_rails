@@ -2,4 +2,4 @@
 
 Medium clone using Ruby on Rails.
 
-Sample app can be viewed here: <a href="https://medium-on-rails.herokuapp.com/">medium-on-rails.herokuapp.com</a>
+Sample app can be viewed here: https://medium-on-rails.herokuapp.com
