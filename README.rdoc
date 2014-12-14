@@ -1,3 +1,5 @@
 == README
 
 Medium clone using Ruby on Rails.
+
+Sample app can be viewed here: medium-on-rails.herokuapp.com
